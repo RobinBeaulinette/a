@@ -1,0 +1,45 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#define MAX_LETTRE 100
+
+char *get_first_arg(int argc, char *argv[])
+{
+    if (argc <2)
+    {
+        printf("no argument\n\n");
+        exit(0);
+    }
+    return (argv[1]);
+}
+
+int main(int argc, char *argv[]) {
+  
+  unsigned int nbLignes;	
+  unsigned int centreLigne;
+  int i;
+  char ligne[MAX_LETTRE];	
+ 
+  
+  
+  char *arg = get_first_arg(argc, argv);
+  nbLignes =  strlen(arg);  
+ 
+  
+  for(i=0; i<MAX_LETTRE; i++) {
+    ligne[i] = ' ';
+  }
+  ligne[MAX_LETTRE - 1] = '\0';
+ 
+  centreLigne = nbLignes -1;
+  for (i=0; i<nbLignes; i++) {
+    ligne[centreLigne - i] = 't';
+    ligne[centreLigne + i] = 'o';
+ 
+    
+    printf("%s\n", ligne);
+  }  
+ 
+  return 0;
+}
+
